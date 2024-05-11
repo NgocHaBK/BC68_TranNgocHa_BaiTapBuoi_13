@@ -19,7 +19,7 @@ document.getElementById("btn-giaTriTrungBinh").onclick = () => {
   let n1 = document.querySelectorAll('[id^="so"]');
   let sum = 0;
   for (i = 0; i < n1.length; i++) {
-    sum += n1[i].value * 1;
+    sum += (n1[i].value * 1);
   }
   let result = sum / 5;
   document.getElementById("xuatGTTB").innerHTML =
