@@ -1,4 +1,3 @@
-
 // ----------BÀI TÍNH TIỀN LƯƠNG------------
 document.getElementById("btn-tienLuong").onclick = () => {
   let dayOfWork = document.getElementById("salary").value * 1;
@@ -21,7 +20,6 @@ document.getElementById("btn-giaTriTrungBinh").onclick = () => {
   let sum = 0;
   for (i = 0; i < n1.length; i++) {
     sum += n1[i].value * 1;
-    console.log(n1[i].value);
   }
   let result = sum / 5;
   document.getElementById("xuatGTTB").innerHTML =
@@ -46,11 +44,11 @@ document.getElementById("btn-quyDoi").onclick = () => {
 // ------------BÀI TÍNH DIỆN TÍCH, CHU VI-------------
 document.getElementById("btn-Cvi_Dtich").onclick = () => {
   let chieuRong = document.getElementById("chieuRong").value * 1;
-    let chieuDai = document.getElementById("chieuDai").value * 1;
-    if (chieuDai < 0 || chieuRong < 0) {
-        alert("Kích thước bạn nhập không hợp lệ!")
-        return;
-    }
+  let chieuDai = document.getElementById("chieuDai").value * 1;
+  if (chieuDai < 0 || chieuRong < 0) {
+    alert("Kích thước bạn nhập không hợp lệ!");
+    return;
+  }
   let DienTich = chieuRong * chieuDai,
     ChuVi = (chieuDai + chieuRong) * 2;
   document.querySelector(".xuatketqua").innerHTML =
@@ -59,35 +57,33 @@ document.getElementById("btn-Cvi_Dtich").onclick = () => {
 
 // ------------BÀI TÍNH TỔNG 2 KÝ SỐ ----------------
 document.getElementById("btn-TongKySo").onclick = () => {
+  let digit = document.getElementById("soUser").value;
+  if ((digit.length >= 3 && digit[0] != "-") || digit.length <= 1) {
+    alert("Bạn đã nhập số không hợp lệ (2 chữ số) !");
+    return;
+  }
+  digit = digit * 1;
+  console.log(digit);
+  let second_digit = digit % 10;
 
-    let digit = document.getElementById("soUser").value;
-    if (digit.length >= 3 && digit[0]!='-' || digit.length <=1) {
-        alert("Bạn đã nhập số không hợp lệ (2 chữ số) !");
-        return;
-    }
-    digit = digit * 1;
-    console.log(digit);
-    let second_digit = digit % 10;
-    
-    if (second_digit < 0) second_digit += 10;
-    console.log(second_digit);
-    digit /= 10;
-    console.log(parseInt(digit));
-    let result = second_digit + parseInt(digit);
-    document.getElementById("noiXuatTong").innerHTML="Tổng hai ký số là: " + result +".";
+  if (second_digit < 0) second_digit += 10;
+  console.log(second_digit);
+  digit /= 10;
+  console.log(parseInt(digit));
+  let result = second_digit + parseInt(digit);
+  document.getElementById("noiXuatTong").innerHTML =
+    "Tổng hai ký số là: " + result + ".";
 };
-
 
 // ----------- HÀM XỬ LÝ HÀNH VI CLICK CHỌN BÀI TẬP CỦA NGƯỜI DÙNG ------------
 function openTab(evt, tabName) {
-  
   let tabcontent = document.getElementsByClassName("tabcontent");
-  for ( i = 0; i < tabcontent.length; i++) {
+  for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
 
   let tablinks = document.getElementsByClassName("tablinks");
-  for ( i = 0; i < tablinks.length; i++) {
+  for (i = 0; i < tablinks.length; i++) {
     tablinks[i].classList.remove("active");
   }
 
